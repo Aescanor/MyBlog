@@ -16,8 +16,8 @@ export const App = () => {
     <main>
       <Routes> 
         <Route path="/" element={<Home/>} />
+        <Route path="/post/:id" element={<SinglePost />} />
         <Route path="/newPost" element={<NewPost />} />
-        <Route path="/singlePost" element={<SinglePost />} />
       </Routes>
     </main>
     

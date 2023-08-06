@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import PostList from '../PostList/PostList';
+import PostList from '../../PostList/PostList';
 import './Home.scss';
 
 export function Home() {

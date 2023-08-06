@@ -4,7 +4,22 @@ import { useParams } from 'react-router-dom';
 export function SinglePost() {
   const { id } = useParams();
 
-  // Remplacez ce code par la logique pour récupérer les détails de l'article avec l'ID spécifié
+  // fetch avec l'id
+  const fetchPost = async () => {
+    try {
+      const response = await fetch(`http://localhost:5000/post/${id}`);
+      if (!response.ok) {
+        throw new Error('Erreur lors de la récupération de l\'article');
+      }
+      const data = await response.json();
+      setPosts(data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  fetchPost();
+
 
   return (
     <div>

@@ -1,6 +1,6 @@
-import { nanoid } from 'nanoid';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import Card from './Cards/Card';
 
 function PostList() {
 const [posts, setPosts] = useState([]);
@@ -28,14 +28,10 @@ useEffect(() => {
   return (
 
     <div className="post-list">
-      <h2>Articles</h2>
-      <ul>
+      <h2>Liste des article</h2>
         {posts.map((post) => (
-          <li key={nanoid()}>
-            <Link to={`/post/${post.id}`}>{post.message}{post.author}{post.likers}</Link>
-          </li>
+          <Card key={post._id} post={post} />
         ))}
-        </ul>
 </div>
 );
   }

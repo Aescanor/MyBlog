@@ -1,13 +1,11 @@
 import React from 'react';
-import PostList from '../PostList';
+import PostList from '../PostList/PostList';
 
 export function Home() {
   return (
-    <div>
-
-    <h2>Articles de blog :</h2>
-
+<>
+<h2>Liste des articles :</h2>
 <PostList />
-    </div>
+</>
   );
 }

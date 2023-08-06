@@ -1,0 +1,19 @@
+@import '../../sass/mixins.scss';
+@import '../../sass/variables.scss';
+
+
+.post-list {
+    @include FlexCenterWrap;
+    margin-top: $spacing-unit;
+    padding: $spacing-unit;
+    gap: $spacing-unit;
+    border-radius: $border-radius;
+    background-color: $light-color;
+    box-shadow: $box-shadow;
+    width: 100%;
+    max-width: 120rem;
+    height: 80%;
+    // max-height: max-content;
+    margin: 0 auto;
+    padding: 0 2rem;
+}

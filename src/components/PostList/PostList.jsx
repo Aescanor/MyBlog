@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import Card from './Cards/Card';
+import Card from '../Cards/Card';
+import './PostList.scss';
 
 function PostList() {
 const [posts, setPosts] = useState([]);
@@ -28,7 +28,6 @@ useEffect(() => {
   return (
 
     <div className="post-list">
-      <h2>Liste des article</h2>
         {posts.map((post) => (
           <Card key={post._id} post={post} />
         ))}

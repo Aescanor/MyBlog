@@ -1,0 +1,78 @@
+@import "../../sass/mixins.scss";
+@import "../../sass/variables.scss";
+
+.card {
+  @include FlexCenterColumnWrap;
+  flex-basis: 40%;
+  width: 30rem;
+  height: 50rem; 
+
+  border-radius: $border-radius;
+
+  h2 {
+    flex-basis: 15%;
+    width: 100%;
+    text-align: center;
+    padding: $spacing-unit;
+    border-radius: $border-radius 0 0 0;
+    background-color: $info-color;
+    color: $light-color;
+    font-size: 2rem;
+
+    a {
+      color: $light-color;
+      text-decoration: none;
+    }
+  }
+
+  figure {
+    @include FlexCenterColumnWrap;
+    flex-basis: 40%;
+    width: 100%;
+    height: auto; 
+    margin: 0;
+    padding: 0;
+    border-radius: $border-radius;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      max-width: 20rem;
+      height: auto;
+      object-fit: cover;
+    }
+
+    figcaption {
+      flex-basis: 20%;
+      width: 100%;
+      padding: $spacing-unit;
+      border-radius: 0 0 $border-radius $border-radius;
+      background-color: $light-color;
+      color: $dark-color;
+      font-size: 1.4rem;
+      text-align: center;
+    }
+
+}
+    .content {
+      flex-basis: 40%;
+      width: 100%;
+      padding: $spacing-unit;
+      border-radius: 0 0 $border-radius $border-radius;
+      background-color: $light-color;
+      color: $dark-color;
+      font-size: 1.4rem;
+      text-align: center;
+    }
+
+    .infos{
+        flex-basis: 5%;
+        width: 100%;
+        padding: $spacing-unit;
+        border-radius: 0 0 $border-radius $border-radius;
+        background-color: $light-color;
+        color: $dark-color;
+        font-size: 1.4rem;
+        text-align: center;
+    }
+}

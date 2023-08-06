@@ -1,0 +1,11 @@
+@import './sass/reset.scss';
+@import './sass/variables.scss';
+@import './sass/mixins.scss';
+
+main{
+    @include FlexCenterColumnWrap;
+    height: 100vh;
+    background-color: $light-color;
+    padding: $spacing-unit;
+    border-radius: $border-radius;
+}

@@ -1,0 +1,64 @@
+@mixin Flex(){
+    display: flex;
+}
+
+@mixin FlexCenter(){
+    @include Flex();
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin FlexCenterColumn(){
+    @include FlexCenter();
+    flex-direction: column;
+}
+
+@mixin FlexCenterColumnWrap(){
+    @include FlexCenterColumn();
+    flex-wrap: wrap;
+}
+
+@mixin FlexCenterWrap(){
+    @include FlexCenter();
+    flex-wrap: wrap;
+}
+
+@mixin FlexCenterWrapReverse(){
+    @include FlexCenter();
+    flex-wrap: wrap-reverse;
+}
+
+@mixin FlexCenterReverse(){
+    @include FlexCenter();
+    flex-direction: row-reverse;
+}
+
+@mixin FlexCenterColumnReverse(){
+    @include FlexCenterColumn();
+    flex-direction: column-reverse;
+}
+
+@mixin FlexCenterReverseWrap(){
+    @include FlexCenterReverse();
+    flex-wrap: wrap;
+}
+
+@mixin FlexCenterReverseColumnWrap(){
+    @include FlexCenterColumnReverse();
+    flex-wrap: wrap;
+}
+
+@mixin FlexCenterReverseColumnWrapReverse(){
+    @include FlexCenterColumnReverse();
+    flex-wrap: wrap-reverse;
+}
+
+@mixin FlexCenterReverseWrapReverse(){
+    @include FlexCenterReverse();
+    flex-wrap: wrap-reverse;
+}
+
+@mixin FlexCenterReverseWrapReverse(){
+    @include FlexCenterReverse();
+    flex-wrap: wrap-reverse;
+}

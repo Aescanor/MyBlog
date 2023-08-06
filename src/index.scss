@@ -18,7 +18,7 @@
 
 main{
     @include FlexCenterColumnWrap;
-    height: 100vh;
+    min-height: 100vh;
     background-color: $light-color;
     padding: $spacing-unit;
     border-radius: $border-radius;

@@ -27,7 +27,7 @@ function Card({ post, createdAt, author, title, message, picture }) {
         <img
           src={post.picture}
           alt="image de l'article"
-          className="img-fluid"
+          className="card-image"
         />
         <figcaption>{post.title}</figcaption>
       </figure>
@@ -39,7 +39,7 @@ function Card({ post, createdAt, author, title, message, picture }) {
         <p><strong>Auteur:</strong> {post.author}</p>
       </div>
       <div className="likes">
-      <img src={likeIcon} alt="like icon" />
+      <img src={likeIcon} alt="like icon"/>
       <p>{post.likers.length}</p>
       </div>
     </div>

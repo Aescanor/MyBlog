@@ -5,6 +5,7 @@ import { Home } from './components/pages/Home';
 import { NewPost } from './components/pages/NewPost';
 import { SinglePost} from './components/pages/SinglePost';
 import NotFound from './components/NotFound';
+import Footer from './components/Footer/Footer';
 
 export const App = () => {
   return (
@@ -22,6 +23,7 @@ export const App = () => {
       </Routes>
     </main>
     
+    <Footer />
     </div>
     </BrowserRouter>
     

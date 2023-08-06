@@ -2,6 +2,20 @@
 @import './sass/variables.scss';
 @import './sass/mixins.scss';
 
+.container{
+    background-color: orange;
+    height: 5vh;
+    
+    .navbar{
+        background-color: red;
+        height: 100%;
+        width: 20%;
+        float: left;
+        font-size: 6rem;
+    }
+}
+        
+
 main{
     @include FlexCenterColumnWrap;
     height: 100vh;

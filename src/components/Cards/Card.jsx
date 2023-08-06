@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
 import "./Card.scss";
+import likeIcon from "../../assets/icons/like.svg";
 
-function Card({ post }) {
-  // Date :
+function Card({ post, createdAt, author, title, message, picture }) {
+
+  // Substring of the message:
+  const subMessage = (post.message).substring(0, 50) + "...";
+
+  // Date in FR format:
   const dateObject = new Date(post.createdAt);
   const date = dateObject.toLocaleString("fr-FR", {
     weekday: "long",
@@ -27,13 +32,16 @@ function Card({ post }) {
         <figcaption>{post.title}</figcaption>
       </figure>
       <div className="content">
-        <p>{post.message}</p>
+        <p>{subMessage}</p>
       </div>
       <div className="infos">
-        <p>Date de publication: {date}</p>
-        <p>Auteur: {post.author}</p>
+        <p> <strong>Date de publication:</strong> {date}</p>
+        <p><strong>Auteur:</strong> {post.author}</p>
       </div>
-      <p>Likes: {post.likers.length}</p>
+      <div className="likes">
+      <img src={likeIcon} alt="like icon" />
+      <p>{post.likers.length}</p>
+      </div>
     </div>
   );
 }

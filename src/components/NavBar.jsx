@@ -39,6 +39,7 @@ function Navbar() {
           </ul>
         </div>
       </div>
+      {/* end container  */}
     </nav>
   );
 }

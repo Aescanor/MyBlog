@@ -1,0 +1,11 @@
+@import '../../sass/mixins.scss';
+@import '../../sass/variables.scss';
+
+footer{
+    @include FlexCenterColumnWrap;
+    height: 5vh;
+    background-color: $light-color;
+    padding: $spacing-unit;
+    border-radius: $border-radius;
+    font-size: large;
+}

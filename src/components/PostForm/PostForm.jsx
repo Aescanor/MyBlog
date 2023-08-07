@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import './PostForm.scss';
 
-function PostForm() { //composant pour le formulaire de création d'un article
+function PostForm() { 
 
-  const [form, setForm] = useState({ //création d'un objet form avec les champs du formulaire
+  const [form, setForm] = useState({ 
 
     title: "",
     picture: "",
@@ -11,50 +12,57 @@ function PostForm() { //composant pour le formulaire de création d'un article
     author : "",
   });
 
-  const navigate = useNavigate(); //hook pour la navigation
+  const navigate = useNavigate(); 
 
-function updateField(e){ //fonction pour mettre à jour les champs du formulaire
-  setForm({ //mise à jour de l'objet form
-    ...form, //copie de l'objet form
-    [e.target.name]: e.target.value //récupère la valeur de l'input et la stocke dans l'objet form
+function updateField(e){ 
+  
+  setForm({ 
+    ...form, 
+    [e.target.name]: e.target.value 
   });
 }
 
-async function handleSubmit(e){  //fonction asynchrone pour envoyer le formulaire
+async function handleSubmit(e){  
 
-  e.preventDefault(); //empêche le rechargement de la page
+  e.preventDefault(); 
 
-const post =  //création d'un objet JS
-  {...form}; //copie de l'objet form
+const post =  
+  {...form}; 
 
   try {
     await fetch("http://localhost:5000/post", {
-      method: "POST", // méthode POST pour créer un nouvel article
+      method: "POST", 
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(post), //conversion de l'objet JS en JSON
+      body: JSON.stringify(post), 
     });
 
-    setForm({ //remise à zéro du formulaire
+    setForm({ 
       title: "",
       picture: "",
       message: "",
       author : "",
     });
+
+    if(e.target.name == ""){
+      alert('Veuillez remplir tous les champs');
+      return;
+    }
+  
     
-    navigate("/"); // redirection vers la page d'accueil après succès de la création de l'article
+    navigate("/"); 
   } catch (error) {
     console.error(error);
-    // Gérer l'erreur ici, par exemple, afficher un message à l'utilisateur pour lui indiquer que la création a échoué.
   }
 }
 
 
   return (
     <>
-      <h2>Poster un nouvel article</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='form-container'>
+
+      <h2 className='form-title'>Poster un nouvel article</h2>
 
     <div className="form-group">
         <label htmlFor="title">Titre</label>
@@ -64,8 +72,8 @@ const post =  //création d'un objet JS
         className="form-control" 
         name="title" 
         placeholder='Titre de l article ici'
-        value={form.title} //valeur du champ du formulaire
-        onChange={(e) => updateField(e)} //appel de la fonction updateField
+        value={form.title} 
+        onChange={(e) => updateField(e)} 
         />
     </div>
 
@@ -78,11 +86,12 @@ const post =  //création d'un objet JS
         name="picture"
         placeholder="URL de l 'image ici"
         value={form.picture} 
-        onChange={(e) => updateField(e)}        />
+        onChange={(e) => updateField(e)}        
+        />
     </div>
 
     <div className="form-group">
-        <label htmlFor="message">message</label>
+        <label htmlFor="message">Message</label>
         <textarea name="message" 
         id="message" 
         className="form-control" 
@@ -106,7 +115,7 @@ const post =  //création d'un objet JS
         />
     </div>
 
-<input type="submit" value="Envoyer" className="btn btn-primary"/>
+<input type="submit" value="Envoyer" className="btn-primary"/>
       </form>
     </>
   )

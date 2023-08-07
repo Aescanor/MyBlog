@@ -1,20 +1,22 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import './Article.scss';
+import FormattedDate from '../FormattedDate';
 import SVGs from '../Svgs';
 
-export function Article({post, ...props}){
+export function Article({post}){
       
   return (
-    <div className="post">
-        <h3>{post.title}</h3>
+    <div className="post-detail">
+        <h2>{post.title}</h2>
         <figure>
         <img src={post.picture} alt={post.title} />
+        <figcaption>{post.title}</figcaption>
         </figure>
         <div className="content">
         <p>{post.message}</p>
         </div>
         <div className="infos">
-        <p> <strong>Date de publication:</strong> {post.createdAt}</p>
+        <p> <strong>Date de publication:</strong> <FormattedDate date={post.createdAt}/></p>
         <p><strong>Auteur:</strong> {post.author}</p>
         </div>
         <div className="likes">

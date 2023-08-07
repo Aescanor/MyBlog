@@ -1,0 +1,105 @@
+@import '../../sass/variables.scss';
+@import '../../sass/mixins.scss';
+
+.post-detail {
+    @include FlexCenterColumnWrap;
+    flex-basis: 100%;
+    width: 60%;
+    min-height: 50rem;
+    border-radius: $border-radius;
+    background-color: $light-color;
+    box-shadow: $box-shadow;
+
+    h2 {
+        flex-basis: 15%;
+        width: 100%;
+        text-align: center;
+        padding: $spacing-unit;
+        border-radius: $border-radius 0 0 0;
+        background-color: $info-color;
+        color: $light-color;
+        font-size: 2rem;
+
+    }
+
+    figure {
+        @include FlexCenterColumnWrap;
+        flex-basis: 100%;
+        width: 100%;
+        height: auto;
+        margin: auto;
+        padding: $spacing-unit;
+        border-radius: $border-radius;
+        overflow: hidden;
+        background-color: $light-color;
+        color: $dark-color;
+        font-size: 1.4rem;
+        text-align: center;
+
+        img.card-image {
+            width: 100%;
+            height: 40rem;
+            object-fit: cover;
+        }
+
+        figcaption {
+            flex-basis: 20%;
+            width: 100%;
+            padding: $spacing-unit;
+            border-radius: 0 0 $border-radius $border-radius;
+            background-color: $light-color;
+            color: $dark-color;
+            font-size: 1.4rem;
+            text-align: center;
+        }
+
+    }
+
+    .content {
+        flex-basis: 40%;
+        width: 100%;
+        padding: $spacing-unit;
+        border-radius: 0 0 $border-radius $border-radius;
+        background-color: $light-color;
+        color: $dark-color;
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    .infos {
+        flex-basis: 5%;
+        width: 100%;
+        padding: $spacing-unit;
+        border-radius: 0 0 $border-radius $border-radius;
+        background-color: $light-color;
+        color: $dark-color;
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    .likes {
+        @include Flex;
+        justify-content: left;
+        flex-basis: 5%;
+        width: 100%;
+        padding: $spacing-unit;
+        border-radius: 0 0 $border-radius $border-radius;
+        background-color: $light-color;
+        color: $dark-color;
+        font-size: 1.4rem;
+        text-align: center;
+
+        img {
+            width: 3rem;
+            height: 3rem;
+            margin-right: 1rem;
+        }
+
+        p {
+            font-size: 2rem;
+            font-weight: bold;
+            font-style: italic;
+
+        }
+    }
+}

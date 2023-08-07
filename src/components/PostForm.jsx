@@ -11,7 +11,7 @@ function PostForm() { //composant pour le formulaire de création d'un article
     author : "",
   });
 
-  const useNavigate = useNavigate(); //hook pour la navigation
+  const navigate = useNavigate(); //hook pour la navigation
 
 function updateField(e){ //fonction pour mettre à jour les champs du formulaire
   setForm({ //mise à jour de l'objet form
@@ -24,57 +24,86 @@ async function handleSubmit(e){  //fonction asynchrone pour envoyer le formulair
 
   e.preventDefault(); //empêche le rechargement de la page
 
-const newPost = { //création d'un objet JS
+const post =  //création d'un objet JS
   {...form}; //copie de l'objet form
 
-  await fetch("http://localhost:3000/post", {  //requête vers l'API
+  try {
+    await fetch("http://localhost:5000/post", {
+      method: "POST", // méthode POST pour créer un nouvel article
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(post), //conversion de l'objet JS en JSON
+    });
 
-    method: "POST", //méthode de la requête
-    headers: { //headers de la requête
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(newPost) //conversion de l'objet JS en JSON
-  })
-  .catch(error=> { //en cas d'erreur
+    setForm({ //remise à zéro du formulaire
+      title: "",
+      picture: "",
+      message: "",
+      author : "",
+    });
+    
+    navigate("/"); // redirection vers la page d'accueil après succès de la création de l'article
+  } catch (error) {
     console.error(error);
-    return;
-  });
-
-  setForm({ //remise à zéro du formulaire
-    title: "",
-    picture: "",
-    message: "",
-    author : "",
-  });
-  navigate("/") //redirection vers la page d'accueil
+    // Gérer l'erreur ici, par exemple, afficher un message à l'utilisateur pour lui indiquer que la création a échoué.
+  }
 }
 
-
-}
 
   return (
     <>
       <h2>Poster un nouvel article</h2>
-      <form action="post">
+      <form onSubmit={handleSubmit}>
 
     <div className="form-group">
         <label htmlFor="title">Titre</label>
-        <input type="text" id="title" className="form-control" name="title" />
+        <input 
+        type="text" 
+        id="title" 
+        className="form-control" 
+        name="title" 
+        placeholder='Titre de l article ici'
+        value={form.title} //valeur du champ du formulaire
+        onChange={(e) => updateField(e)} //appel de la fonction updateField
+        />
     </div>
 
     <div className="form-group">
         <label htmlFor="picture">Image</label>
-        <input type="text" id="picture" className="form-control" name="picture"/>
+        <input 
+        type="text" 
+        id="picture" 
+        className="form-control" 
+        name="picture"
+        placeholder="URL de l 'image ici"
+        value={form.picture} 
+        onChange={(e) => updateField(e)}        />
     </div>
 
     <div className="form-group">
         <label htmlFor="message">message</label>
-        <textarea name="message" id="message" className="form-control" cols="45" rows="15"></textarea>
+        <textarea name="message" 
+        id="message" 
+        className="form-control" 
+        cols="45" rows="15"
+        placeholder='Votre message ici'
+        value={form.message} 
+        onChange={(e) => updateField(e)}        >
+        </textarea>
     </div>
 
     <div className="form-group">
         <label htmlFor="author">Auteur</label>
-        <input type="text" id="author" className="form-control" name="author"/>
+        <input 
+        type="text" 
+        id="author" 
+        className="form-control" 
+        name="author"
+        placeholder='Votre nom ici'
+        value={form.author} 
+        onChange={(e) => updateField(e)}
+        />
     </div>
 
 <input type="submit" value="Envoyer" className="btn btn-primary"/>
@@ -83,4 +112,4 @@ const newPost = { //création d'un objet JS
   )
 }
 
-export default PostForm
+export default PostForm;

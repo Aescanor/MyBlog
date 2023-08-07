@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 export function SinglePost() {
   const { id } = useParams();
+  const [post, setPost] = useState(null);
 
   // fetch avec l'id
   const fetchPost = async () => {
@@ -12,13 +13,19 @@ export function SinglePost() {
         throw new Error('Erreur lors de la récupération de l\'article');
       }
       const data = await response.json();
-      setPosts(data);
+      setPost(data);
     } catch (error) {
       console.log(error.message);
     }
   };
 
-  fetchPost();
+  useEffect(() => {
+    fetchPost();
+  }, [id]);
+
+  if(!post) {
+    return <div>Chargement...</div> //ajoute un loader
+  }
 
 
   return (

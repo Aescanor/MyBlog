@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Card.scss";
-import likeIcon from "../../assets/icons/like.svg";
+import '../../components/Svgs'
+import SVGs from "../../components/Svgs";
 
 function Card({ post, createdAt, author, title, message, picture }) {
 
@@ -39,7 +40,7 @@ function Card({ post, createdAt, author, title, message, picture }) {
         <p><strong>Auteur:</strong> {post.author}</p>
       </div>
       <div className="likes">
-      <img src={likeIcon} alt="like icon"/>
+      <img src={SVGs.LikeIcon} alt="like icon"/>
       <p>{post.likers.length}</p>
       </div>
     </div>

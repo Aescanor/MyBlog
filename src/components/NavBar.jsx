@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-// import logo from '../path/to/your/logo.png';
+import '../components/Svgs';
+import SVGs from '../components/Svgs';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,8 +14,8 @@ function Navbar() {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
         <Link className="navbar-brand" to="/">
-          {/* <img src={logo} alt="Logo" width="50" height="50" /> */}
-          My Blog
+          <img src={SVGs.BlogIcon} alt="Logo" width="50" height="50" />
+          {/* My Blog */}
         </Link>
         <button
           className="navbar-toggler"

@@ -1,8 +1,32 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
 .navbar .nav-link {
     font-size: 1.8rem;
+
+    &:hover {
+      color: $info-color;
+      font-weight: bolder;
+      background-color: $dark-color;
+    }
   }
   
   .navbar .nav-link {
     padding: 1rem 1.5rem;
+    text-align: center;
+    border-radius: $border-radius;
+  }
+
+  .collapse{
+    justify-content: flex-end;
+
   }
   
+  .collapse navbar-collapse .show {
+    justify-content: flex-end;
+    background-color: $dark-color;
+
+    ul.navbar-nav{
+      background-color: $dark-color;
+    }
+  }

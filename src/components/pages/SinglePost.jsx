@@ -6,7 +6,6 @@ export function SinglePost() {
   const { id } = useParams();
   const [post, setPost] = useState(null);
 
-  // fetch avec l'id
   const fetchPost = async () => {
     try {
       const response = await fetch(`http://localhost:5000/post/${id}`);
@@ -25,7 +24,7 @@ export function SinglePost() {
   }, [id]);
 
   if(!post) {
-    return <div>Chargement...</div> //ajoute un loader
+    return <div>Chargement...</div> 
   }
 
 

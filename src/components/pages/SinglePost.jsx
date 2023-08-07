@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Article } from '../Article/Article';
 
 export function SinglePost() {
   const { id } = useParams();
@@ -29,10 +30,7 @@ export function SinglePost() {
 
 
   return (
-    <div>
-      <h2>Article {id}</h2>
-      <p>Contenu de l'article {id}</p>
-    </div>
+    <Article post={post} />
   );
 }
 

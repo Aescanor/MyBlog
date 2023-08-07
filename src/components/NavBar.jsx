@@ -15,7 +15,6 @@ function Navbar() {
       <div className="container">
         <Link className="navbar-brand" to="/">
           <img src={SVGs.BlogIcon} alt="Logo" width="50" height="50" />
-          {/* My Blog */}
         </Link>
         <button
           className="navbar-toggler"

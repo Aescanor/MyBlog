@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import "./Card.scss";
 import '../../components/Svgs'
 import SVGs from "../../components/Svgs";
 
-function Card({ post, createdAt, author, title, message, picture }) {
+function Card({ post}) {
 
   // Substring of the message:
   const subMessage = (post.message).substring(0, 50) + "...";
@@ -46,5 +47,17 @@ function Card({ post, createdAt, author, title, message, picture }) {
     </div>
   );
 }
+
+// ProptTypes  : pour ne plus avoir d'erreur dans la console
+Card.propTypes = {
+  post: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    picture: PropTypes.string.isRequired,
+    message: PropTypes.string.isRequired,
+    createdAt: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    likers: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
+};
 
 export default Card;

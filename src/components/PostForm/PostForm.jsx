@@ -24,6 +24,12 @@ function updateField(e){
 
 async function handleSubmit(e){  
 
+  // contrôle input vide :
+  if (form.title === "" || form.picture === "" || form.message === "" || form.author === "") {
+    alert("Veuillez remplir tous les champs");
+    return;
+  }
+
   e.preventDefault(); 
 
 const post =  
@@ -44,11 +50,6 @@ const post =
       message: "",
       author : "",
     });
-
-    if(e.target.name == ""){
-      alert('Veuillez remplir tous les champs');
-      return;
-    }
   
     
     navigate("/"); 

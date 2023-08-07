@@ -63,6 +63,27 @@
         text-align: center;
     }
 
+    .linktoPost{
+        display: flex;
+        justify-content: right;
+        flex-basis: 10%;
+        width: 100%;
+        padding: $spacing-unit;
+        border-radius: 0 0 $border-radius $border-radius;
+        background-color: $light-color;
+        
+        a {
+            color: $success-color;
+            font-size: 1.8rem;
+            color: $info-color;
+            text-decoration: none ;
+        &:hover{
+            color: $success-color;
+            text-decoration: none;
+        }
+        }
+    }
+
     .infos {
         flex-basis: 5%;
         width: 100%;

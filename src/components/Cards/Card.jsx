@@ -13,7 +13,7 @@ function Card({ post}) {
   return (
     <div className="card">
       <h2>
-        <Link to={`/post/${post._id}`}>{post.title}</Link>
+        {post.title}
       </h2>
       <figure>
         <img
@@ -25,6 +25,9 @@ function Card({ post}) {
       </figure>
       <div className="content">
         <p>{subMessage}</p>
+      </div>
+      <div className="linktoPost">
+        <Link to={`/post/${post._id}`}>suite de l'article</Link>
       </div>
       <div className="infos">
         <p> <strong>Date de publication:</strong> <FormattedDate date={post.createdAt}/></p>
@@ -41,6 +44,7 @@ function Card({ post}) {
 // ProptTypes  : pour ne plus avoir d'erreur dans la console
 Card.propTypes = {
   post: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     picture: PropTypes.string.isRequired,
     message: PropTypes.string.isRequired,

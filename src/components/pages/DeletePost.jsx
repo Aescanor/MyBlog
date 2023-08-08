@@ -7,6 +7,13 @@ function DeletePost() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const confirmDelete = window.confirm("Voulez-vous vraiment supprimer ce post ?"); 
+
+    if (!confirmDelete) {
+      navigate("/");
+      return;
+    }
+
     async function fetchData() { 
       try {
         const response = await fetch(`http://localhost:5000/post/${id}`, {
@@ -22,7 +29,7 @@ function DeletePost() {
   
     fetchData();
   }, [id, navigate]);
-    
+  
   return null; 
 }
 

@@ -35,7 +35,16 @@ function Navbar() {
                 Nouvel article
               </Link>
             </li>
-            {/* Ajoutez d'autres liens de navigation ici */}
+            <li className="nav-item">
+              <Link className="nav-link" to="/editPost">
+                Modifier article
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/deletePost">
+                Supprimer article
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

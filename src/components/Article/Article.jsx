@@ -23,6 +23,11 @@ export function Article({post}){
         <img src={SVGs.LikeIcon} alt="like icon"/>
         <p>{post.likers.length}</p>
 
+        {/* futures fonctionnalités : */}
+        {/* use UseParams to by pas by url the id of the post to delete or edit */}
+        <button className='delete-button'>Supprimer</button>
+        <button className='edit-button'>Modifier</button>
+
         </div>
 
     </div>

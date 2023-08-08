@@ -4,6 +4,8 @@ import Navbar from './components/NavBar';
 import { Home } from './components/pages/Home/Home';
 import { NewPost } from './components/pages/NewPost';
 import { SinglePost} from './components/pages/SinglePost';
+import EditPost from './components/pages/EditPost';
+import DeletePost from './components/pages/DeletePost';
 import NotFound from './components/NotFound';
 import Footer from './components/Footer/Footer';
 
@@ -19,6 +21,8 @@ export const App = () => {
         <Route path="/" element={<Home/>}/> 
         <Route path="/post/:id" element={<SinglePost />} />
         <Route path="/newPost" element={<NewPost />} />
+        <Route path="/editPost/:id" element={<EditPost />} />
+        <Route path ="/deletePost/:id" element={<DeletePost/>} />
         <Route path="*" element={<NotFound/>} />
       </Routes>
     </main>

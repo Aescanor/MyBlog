@@ -3,7 +3,7 @@ import { Header } from './components/Header/Header';
 import Navbar from './components/NavBar';
 import { Home } from './components/pages/Home/Home';
 import { NewPost } from './components/pages/NewPost';
-import { SinglePost} from './components/pages/SinglePost';
+import {SinglePost} from './components/pages/SinglePost';
 import EditPost from './components/pages/EditPost';
 import DeletePost from './components/pages/DeletePost';
 import NotFound from './components/NotFound';

@@ -102,7 +102,7 @@
         }
     }
 
-    .extra-btns{
+    .extra-btns {
         @include Flex;
         justify-content: right;
         flex-basis: 100%;
@@ -129,14 +129,13 @@
             cursor: pointer;
             transition: all 0.3s ease-in-out;
 
-            
+
             &:hover {
                 background-color: $light-color;
                 color: $info-color;
                 border: 1px solid $info-color;
             }
-            
+
         }
     }
 }
-

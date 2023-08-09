@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import FormattedUpdatedDate from "../FormattedUpdatedDate"; // Assurez-vous du chemin correct
 import "../PostForm/PostForm.scss";
 
 function EditPost() {
   const { id } = useParams();
   const navigate = useNavigate();
+
+  const [lastModified, setLastModified] = useState("");
 
   const [form, setForm] = useState({
     title: "",
@@ -19,6 +22,16 @@ function EditPost() {
         if (response.ok) {
           const data = await response.json();
           setForm(data);
+
+          // Dernière modification : 
+          const updatedAt = new Date(data.updatedAt);
+          const formattedDate = new Intl.DateTimeFormat("fr-FR", {
+            dateStyle: "full",
+            timeStyle: "long",
+          }).format(updatedAt);
+
+          setLastModified(formattedDate);
+
         } else {
           console.error("Retour du serveur : ", response.status);
           navigate("/notFound");
@@ -88,6 +101,7 @@ function EditPost() {
         />
       </div>
       <div className="form-group">
+        <img src={form.picture} alt={form.title} />
         <label htmlFor="picture">Image</label>
         <input
           type="text"
@@ -109,6 +123,10 @@ function EditPost() {
           value={form.message}
           onChange={updateField}
         ></textarea>
+      </div>
+      <div className="form-group">
+        <label>Dernière modification</label>
+       <p className="lastModified"><FormattedUpdatedDate date={lastModified} /></p>
       </div>
       <input type="submit" value="Modifier" className="btn-primary" />
     </form>

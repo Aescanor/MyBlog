@@ -36,13 +36,13 @@ function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/editPost">
-                Modifier article
+              <Link className="nav-link" to="/createAccount">
+                Créer un compte
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/deletePost">
-                Supprimer article
+              <Link className="nav-link" to="/loginlogout">
+                LogIn/LogOut
               </Link>
             </li>
           </ul>

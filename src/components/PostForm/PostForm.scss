@@ -52,6 +52,13 @@ form.form-container{
             resize: none;
         }
 
+        p.lastModified{
+            margin-top: 1rem;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
         ::placeholder{
             color: $secondary-color;
             text-align: center;

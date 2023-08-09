@@ -1,36 +1,37 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 function DeletePost() {
-
   const { id } = useParams();
   const navigate = useNavigate();
+  const [isDeleted, setIsDeleted] = useState(false);
 
   useEffect(() => {
-    const confirmDelete = window.confirm("Voulez-vous vraiment supprimer ce post ?"); 
+    async function fetchData() {
+      const confirmDelete = window.confirm("Voulez-vous vraiment supprimer ce post ?");
 
-    if (!confirmDelete) {
-      navigate("/");
-      return;
-    }
+      if (confirmDelete && !isDeleted) {
+        try {
+          const response = await fetch(`http://localhost:5000/post/${id}`, {
+            method: "DELETE",
+          });
 
-    async function fetchData() { 
-      try {
-        const response = await fetch(`http://localhost:5000/post/${id}`, {
-          method: "DELETE",
-        });
-        if (response.ok) {
-          navigate("/");
+          if (response.ok) {
+            setIsDeleted(true);
+            navigate("/");
+          }
+        } catch (error) {
+          console.error(error);
         }
-      } catch (error) {
-        console.error(error);
+      } else {
+        navigate("/");
       }
     }
-  
+
     fetchData();
-  }, [id, navigate]);
-  
-  return null; 
+  }, [id, isDeleted, navigate]);
+
+  return null;
 }
 
 export default DeletePost;
